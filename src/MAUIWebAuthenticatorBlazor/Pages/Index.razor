@@ -1,0 +1,20 @@
+﻿@page "/"
+@using Microsoft.Maui.Essentials
+
+<h1>Hello, world!</h1>
+
+Welcome to your new app.
+
+<SurveyPrompt Title="How is Blazor working for you?" />
+
+<button @onclick="@(async() => await StartAuthenticateAsync())">Authenticate</button>
+
+@code {
+    public async Task StartAuthenticateAsync()
+    {
+        var authResult = await WebAuthenticator.AuthenticateAsync(
+                        new Uri("https://mysuperurl.dotnet"),
+                        new Uri("mysuperdomain://"));
+
+    }
+}
